@@ -1,11 +1,277 @@
-* {
-  box-sizing: border-box;
+/* Minimal globals — MUI ThemeRegistry handles main UI (Soft UI Dashboard) */
+
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Markdown editor & content */
+.markdown-content {
+  line-height: 1.65;
+  color: #67748e;
+}
+
+.markdown-content > * + * {
+  margin-top: 0.75rem;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  font-weight: 500;
+  color: #344767;
+}
+
+.markdown-editor {
+  border: 1px solid #e9ecef;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+}
+
+.markdown-editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+  flex-wrap: wrap;
+}
+
+.markdown-editor-actions {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.markdown-editor-btn {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #67748e;
+}
+
+.markdown-editor-btn:hover {
+  background: #abe9f7;
+  border-color: #17c1e8;
+}
+
+.markdown-editor-tabs button {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  color: #67748e;
+}
+
+.markdown-editor-tabs button.active {
+  background: #fff;
+  border-color: #e9ecef;
+  color: #344767;
+  font-weight: 500;
+}
+
+.markdown-editor-textarea {
+  width: 100%;
+  min-height: 280px;
+  padding: 1rem;
+  border: none;
+  resize: vertical;
+  font: inherit;
+  line-height: 1.6;
+}
+
+.markdown-editor-preview {
+  min-height: 280px;
+  padding: 1rem;
+}
+
+.markdown-editor-hint {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  color: #67748e;
+  border-top: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
+
+/* Legacy detail-page helpers */
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #344767;
+  margin-bottom: 0.25rem;
+}
+
+.page-header p {
+  color: #67748e;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.field label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #344767;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #d2d6da;
+  border-radius: 0.5rem;
+  font: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  transition: all 150ms ease-in;
+}
+
+.btn-primary {
+  background: #17c1e8;
+  color: #fff;
+  box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11), 0 2px 4px -1px rgba(0, 0, 0, 0.07);
+}
+
+.btn-secondary {
+  background: #fff;
+  border-color: #e9ecef;
+  color: #67748e;
+  box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11), 0 2px 4px -1px rgba(0, 0, 0, 0.07);
+}
+
+.alert {
+  padding: 0.8rem 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+
+.alert-error {
+  background: #fc9797;
+  border-color: #f9b4b4;
+  color: #bd0000;
+}
+
+.alert-success {
+  background: #cdf59b;
+  border-color: #daf3b9;
+  color: #67b108;
+}
+
+.loading,
+.empty {
+  text-align: center;
   padding: 2rem;
+  color: #67748e;
+}
+
+.actions-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  background: #abe9f7;
+  color: #08a1c4;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(23, 193, 232, 0.35);
+}
+
+.timeline {
+  list-style: none;
+}
+
+.timeline li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.timeline-meta {
+  font-size: 0.8rem;
+  color: #67748e;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e9ecef;
+  border-radius: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+th {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #67748e;
+  background: #fff;
 }
